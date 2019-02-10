@@ -44,6 +44,22 @@ class Supplier
     SqlRunner.run(sql, values)
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM suppliers WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    supplier = self.new(result.first)
+    return supplier
+  end
+
+  def self.view_all()
+    sql = "SELECT * FROM suppliers"
+    suppliers = SqlRunner.run(sql)
+    result = suppliers.map { |supplier| Supplier.new(supplier) }
+    return result
+  end
+
+
 
 
 

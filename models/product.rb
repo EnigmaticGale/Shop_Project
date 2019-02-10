@@ -53,6 +53,22 @@ class Product
   #   SqlRunner.run(sql, values)
   # end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM products WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    product = self.new(result.first)
+    return product
+  end
+
+  def self.view_all()
+    sql = "SELECT * FROM products"
+    products = SqlRunner.run( sql )
+    result = products.map { |product_hash| Product.new(product_hash) }
+    return result
+  end
+
+
   def self.find_by_supplier_id(supplier_id)
     sql = "SELECT * FROM products
     WHERE supplier_id = $1"
