@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('product.rb')
 
 class Supplier
 
@@ -25,6 +26,22 @@ class Supplier
   def self.delete_all()
     sql = "DELETE FROM suppliers"
     SqlRunner.run(sql)
+  end
+
+  def update()
+    sql = "UPDATE suppliers
+    SET(company_name,company_description,contact_number) = ($1,$2,$3)
+    WHERE id = $4"
+    values = [@company_name,@company_description,@contact_number,@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    Product.remove_supplier_id(@id)
+    sql = "DELETE FROM suppliers
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
 
 

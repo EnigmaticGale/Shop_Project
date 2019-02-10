@@ -47,8 +47,8 @@ product3 = Product.new({
   })
 
   product4 = Product.new({
-    'name' => '10g platinum bar',
-    'description' => 'fresh',
+    'name' => '10g gold bar',
+    'description' => 'funky',
     'stock' => '40',
     'price' => '224.73',
     'sell_price' => '249.99'
@@ -58,3 +58,14 @@ product1.save
 product2.save
 product3.save
 product4.save
+
+product1.description = 'not bad'
+product1.update
+
+product4.delete
+
+supplier1.contact_number = '04329'
+supplier1.update
+
+supplier2.delete
+supplier1.delete

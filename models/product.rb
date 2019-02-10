@@ -30,6 +30,48 @@ class Product
     SqlRunner.run(sql)
   end
 
+  def update()
+    sql = "UPDATE products
+    SET(name,description,stock,price,sell_price,supplier_id) = ($1,$2,$3,$4,$5,$6)
+    WHERE id = $7"
+    values = [@name,@description,@stock,@price,@sell_price,@supplier_id,@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM products
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  # def self.set_supplier_id_to_nil(id)
+  #   sql = "UPDATE products
+  #   SET(supplier_id) = ($1)
+  #   WHERE id = $2"
+  #   values = [nil,supplier_id]
+  #   SqlRunner.run(sql, values)
+  # end
+
+  def self.find_by_supplier_id(supplier_id)
+    sql = "SELECT * FROM products
+    WHERE supplier_id = $1"
+    values = [supplier_id]
+    products = SqlRunner.run(sql, values)
+    result = products.map {|product| Product.new(product)}
+    return result
+  end
+
+  def self.remove_supplier_id(supplier_id)
+    product_array = Product.find_by_supplier_id(supplier_id)
+    product_array.each {|product|
+        product.supplier_id = nil
+        product.update
+      }
+  end
+
+
+
 
 
 
