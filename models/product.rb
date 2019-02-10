@@ -15,6 +15,14 @@ class Product
     @supplier_id = options['supplier_id'].to_i if options['supplier_id']
   end
 
+  def supplier
+    sql = "SELECT * FROM suppliers WHERE id = $1"
+    values = [@supplier_id]
+    result = SqlRunner.run(sql, values)
+    supplier = self.new(result.first)
+    return supplier
+  end
+
   def save()
     sql = "INSERT INTO products(name,description,stock,price,sell_price,supplier_id)
     VALUES($1, $2, $3, $4, $5, $6)
