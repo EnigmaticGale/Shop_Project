@@ -19,12 +19,12 @@ get '/product/:id' do
   erb(:product_details)
 end
 
-get 'supplier_of_product/:supplier_id' do
-  @supplier = Supplier.find_by_id
+get '/product/supplier_of_product/:supplier_id' do
+  @supplier = Supplier.find_by_id(params[:supplier_id])
   erb(:supplier_of_product)
 end
 
-get '/supplier_details/:id' do
+get '/product/supplier_of_product/supplier_of_product/:id' do
   @supplier = Supplier.find_by_id(params[:id])
   @products = @supplier.view_products
   erb(:supplier_details)

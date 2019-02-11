@@ -27,7 +27,7 @@ class Product
       empty_supplier = Supplier.new({
         'company_name' => 'N/A',
         'company_description' => 'N/A',
-        'contact_number' => 'N.A'})
+        'contact_number' => 'N/A'})
       return empty_supplier
     end
   end
