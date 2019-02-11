@@ -1,0 +1,12 @@
+<h2>Stock</h2>
+
+<div>
+  <% @stock.each do |product| %>
+
+  <div>
+    <h3><a href="/product/<%= product.id %>"><%= product.name %></a></h3>
+    <p>Stock Count: <%= product.stock.to_s %></p>
+  </div>
+
+  <% end %>
+</div>
