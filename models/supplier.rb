@@ -59,6 +59,19 @@ class Supplier
     return result
   end
 
+  def assign_to_product(product)
+    product.supplier_id = @id
+    product.update
+  end
+
+  def view_products()
+    sql = "SELECT * FROM products WHERE product_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    suppliers_array = result.map {|supplier| Supplier.new(supplier)}
+    return supplier_array
+  end
+
 
 
 
