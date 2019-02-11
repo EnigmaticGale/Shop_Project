@@ -62,10 +62,10 @@ product4.save
 product1.description = 'not bad'
 product1.update
 
-product4.delete
+# product4.delete
 
 supplier1.contact_number = '04329'
 supplier1.update
 
-supplier2.delete
-supplier1.delete
+# supplier2.delete
+# supplier1.delete
