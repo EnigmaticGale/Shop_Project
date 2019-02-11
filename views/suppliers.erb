@@ -1,0 +1,11 @@
+<h2>Suppliers</h2>
+
+<div>
+  <% @suppliers.each do |supplier| %>
+
+  <div>
+    <h3><a href="/product/supplier_of_product/supplier_details/<%=supplier.id%>"><%= supplier.company_name %></a></h3>
+  </div>
+
+  <% end %>
+</div>

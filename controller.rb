@@ -9,7 +9,7 @@ get '/stock' do
   erb(:stock)
 end
 
-get '/supplier' do
+get '/suppliers' do
   @suppliers = Supplier.view_all
   erb(:suppliers)
 end
@@ -24,9 +24,8 @@ get '/product/supplier_of_product/:supplier_id' do
   erb(:supplier_of_product)
 end
 
-get '/product/supplier_of_product/supplier_of_product/:id' do
+get '/product/supplier_of_product/supplier_details/:id' do
   @supplier = Supplier.find_by_id(params[:id])
-  @products = @supplier.view_products
   erb(:supplier_details)
 end
 

@@ -3,15 +3,18 @@
 <p>Description: <%= @supplier.company_description %></p>
 <p>Contact Number: <%= @supplier.contact_number %></p>
 
-<a href="supplier_of_product/<%=@supplier.id%>">Supplier Details</a>
+<br>
 
 <div>
-  <% @products.each do |product| %>
+  <% products = @supplier.view_products %>
+  <% products.each do |product| %>
 
   <div>
     <h3><a href="/product/<%= product.id %>"><%= product.name %></a></h3>
     <p>Stock Count: <%= product.stock.to_s %></p>
   </div>
+
+<hr>
 
   <% end %>
 </div>

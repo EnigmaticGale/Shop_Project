@@ -65,7 +65,7 @@ class Supplier
   end
 
   def view_products()
-    sql = "SELECT * FROM products WHERE product_id = $1"
+    sql = "SELECT * FROM products WHERE supplier_id = $1"
     values = [@id]
     result = SqlRunner.run(sql, values)
     products_array = result.map {|product| Product.new(product)}
