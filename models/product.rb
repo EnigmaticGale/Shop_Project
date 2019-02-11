@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('supplier.rb')
 
 class Product
 
@@ -16,11 +17,15 @@ class Product
   end
 
   def supplier
-    sql = "SELECT * FROM suppliers WHERE id = $1"
-    values = [@supplier_id]
-    result = SqlRunner.run(sql, values)
-    supplier = self.new(result.first)
-    return supplier
+    if @supplier_id != nil
+      sql = "SELECT * FROM suppliers WHERE id = $1"
+      values = [@supplier_id]
+      result = SqlRunner.run(sql, values)
+      supplier = Supplier.new(result.first)
+      return supplier
+    else
+      return 'N/A'
+    end
   end
 
   def save()
