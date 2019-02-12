@@ -52,6 +52,12 @@ post '/product/:id/edit' do
   redirect to "/stock"
 end
 
+post '/product/:id/delete' do
+  product = Product.find_by_id(params['id'])
+  product.delete
+  redirect to '/products'
+end
+
 get '/product/supplier_of_product/:supplier_id' do
   @supplier = Supplier.find_by_id(params[:supplier_id])
   erb(:supplier_of_product)
@@ -60,14 +66,4 @@ end
 get '/product/supplier_of_product/supplier_details/:id' do
   @supplier = Supplier.find_by_id(params[:id])
   erb(:supplier_details)
-end
-
-
-
-
-
-get '/new_supplier' do
-  Product.new(params).save
-  redirect to '/stock'
-
 end

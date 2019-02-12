@@ -9,3 +9,5 @@
 <a href="supplier_of_product/<%= @product.supplier_id %>">Supplier Details</a>
 
 <h3><a href="/product/<%=@product.id%>/edit">Edit product details</a></h3>
+
+<form action="/product/<%= @product.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
