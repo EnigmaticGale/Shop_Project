@@ -50,10 +50,17 @@ get '/product/supplier_of_product/supplier_details/:id' do
   erb(:supplier_details)
 end
 
-get '/edit_product/:id' do
+get '/product/:id/edit' do
   @supplier = supplier.view_all
   @product = Product.find_by_id(params[:id])
 end
+
+post '/product/:id/edit' do
+  product = Product.new(params)
+  product.update
+  redirect to "/stock"
+end
+
 
 
 get '/new_supplier' do
