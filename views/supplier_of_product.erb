@@ -4,3 +4,5 @@
 <p>Contact Number: <%= @supplier.contact_number %></p>
 
 <a href="supplier_details/<%=@supplier.id%>">View all products from this Supplier</a>
+
+<form action="/supplier/<%=@supplier.id%>/delete" method="POST"><input type="submit" value="Delete"></form>
