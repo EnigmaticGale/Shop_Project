@@ -34,10 +34,11 @@ get '/edit_product/:id' do
   @product = Product.find_by_id(params[:id])
 end
 
-post '/new_product' do
-  Product.new(params).save
-  redirect to '/stock'
-end
+post '/product/:id' do
+    product = Product.new(params)
+    product.update
+    redirect to "/product/#{params['id']}"
+  end
 
 post '/new_supplier' do
   Product.new(params).save

@@ -4,40 +4,36 @@
 
     <div>
       <label for="name">Product Name:</label>
-      <input type="text" name="name"/>
+      <input type="text" name="name" id="name"/>
     </div>
 
     <div>
       <label for="description">Product Description:</label>
-      <input type="text" name="description"/>
+      <input type="text" name="description" id="description"/>
     </div>
 
     <div>
-      <label for="name">Product Name:</label>
-      <input type="text" name="name"/>
+      <label for="stock">Current Stock:</label>
+      <input type="text" name="stock" id="stock"/>
     </div>
 
-    <div class="form-el">
-      <label for="last_name">Last Name:</label>
-      <input type="text" name="last_name" id="last_name"/>
+    <div>
+      <label for="price">Price to buy:</label>
+      <input type="text" name="price" id="price"/>
     </div>
 
-    <div class="form-el">
-      <label for="house_select">Select House:</label>
-      <select name="house_id" id="house_select">
-        <% @houses.each do |house| %>
-            <option value=<%= house.id %>><%= house.name.capitalize %></option>
+    <div>
+      <label for="sell_price">Sell Price:</label>
+      <input type="text" name="sell_price" id="sell_price"/>
+    </div>
+
+    <div>
+      <label for="supplier_id">Supplier:</label>
+      <select name="supplier_id" id="supplier_id">
+        <% @suppliers.each do |supplier| %>
+            <option value=<%= supplier.id %>><%= supplier.name.capitalize %></option>
         <% end %>
       </select>
-    </div>
-
-    <div class="form-el">
-      <label for="age">Age:</label>
-      <input type="number" name="age" id="age"/>
-    </div>
-
-    <div class="form-el">
-      <input type="submit" value="Enrol Student"/>
     </div>
 
   </div>
