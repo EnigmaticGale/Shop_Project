@@ -6,15 +6,17 @@
   <div>
     <h3><a href="/product/<%= product.id %>"><%= product.name %></a></h3>
 
-    <%= if product.stock.to_i <= 10 %>
-    <p style="color:red;">Stock Count: <%= product.stock.to_s %></p>
-    <%= elsif product.stock.to_i <= 25 %>
+    <% if product.stock <= 10 %>
+    <p style="color:red;">Stock Count: <%= product.stock.to_s %> !!!</p>
+    <% elsif product.stock <= 25 %>
     <p style="color:orange;">Stock Count: <%= product.stock.to_s %></p>
-    <%= else %>
+    <% else %>
     <p style="color:green;">Stock Count: <%= product.stock.to_s %></p>
-    <%= end %>
+    <% end %>
 
   </div>
+
+  <hr>
 
   <% end %>
   <h3><a href="/stock/new">New Product</a></h3>
