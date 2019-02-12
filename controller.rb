@@ -67,3 +67,9 @@ get '/product/supplier_of_product/supplier_details/:id' do
   @supplier = Supplier.find_by_id(params[:id])
   erb(:supplier_details)
 end
+
+post '/supplier/:id/delete' do
+  supplier = Supplier.find_by_id(params['id'])
+  supplier.delete
+  redirect to '/suppliers'
+end
