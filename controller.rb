@@ -16,7 +16,7 @@ end
 
 get '/suppliers/new' do
   @suppliers = Supplier.view_all
-  erb(:new_product)
+  erb(:new_supplier)
 end
 
 post '/suppliers/new' do
