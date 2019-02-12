@@ -55,7 +55,7 @@ end
 post '/product/:id/delete' do
   product = Product.find_by_id(params['id'])
   product.delete
-  redirect to '/products'
+  redirect to '/stock'
 end
 
 get '/product/supplier_of_product/:supplier_id' do
