@@ -5,7 +5,17 @@
 
   <div>
     <h3><a href="/product/<%= product.id %>"><%= product.name %></a></h3>
-    <p>Stock Count: <%= product.stock.to_s %></p>
+
+    <% case @product.stock %>
+    <% when <= 10 %>
+    <p style="color:red;">Stock Count: <%= product.stock.to_s %></p>
+    <% when  (10..25) %>
+    <p style="color:orange;">Stock Count: <%= product.stock.to_s %></p>
+    <% when >= 25 %>
+    <p style="color:green;">Stock Count: <%= product.stock.to_s %></p>
+    <% end %>
+
+
   </div>
 
   <% end %>
