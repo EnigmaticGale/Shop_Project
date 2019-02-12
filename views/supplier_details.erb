@@ -5,6 +5,10 @@
 
 <br>
 
+<form action="/supplier/<%=@supplier.id%>/delete" method="POST"><input type="submit" value="Delete"></form>
+
+<br>
+
 <div>
   <% products = @supplier.view_products %>
   <% products.each do |product| %>
