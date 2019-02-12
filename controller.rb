@@ -14,6 +14,16 @@ get '/suppliers' do
   erb(:suppliers)
 end
 
+get '/suppliers/new' do
+  @suppliers = Supplier.view_all
+  erb(:new_product)
+end
+
+post '/suppliers/new' do
+  @supplier = Supplier.new(params).save
+  redirect to "/suppliers"
+end
+
 get '/stock/new' do
   @products = Product.view_all
   @suppliers = Supplier.view_all
