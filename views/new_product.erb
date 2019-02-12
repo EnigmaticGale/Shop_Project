@@ -1,5 +1,5 @@
-<h2>Enrol Student</h2>
-<form method="POST" action="/new_product">
+<h2>Add New Product</h2>
+<form method="POST" action="/product/new">
   <div>
 
     <div>
@@ -31,10 +31,16 @@
       <label for="supplier_id">Supplier:</label>
       <select name="supplier_id" id="supplier_id">
         <% @suppliers.each do |supplier| %>
-            <option value=<%= supplier.id %>><%= supplier.name.capitalize %></option>
+            <option value=<%= supplier.id %>><%= supplier.company_name %></option>
         <% end %>
       </select>
     </div>
+
+    <br>
+    <div>
+      <input type = "submit"
+             value = "add product">
+      </div>
 
   </div>
 </form>

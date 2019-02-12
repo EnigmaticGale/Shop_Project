@@ -14,6 +14,17 @@ get '/suppliers' do
   erb(:suppliers)
 end
 
+get '/stock/new' do
+  @products = Product.view_all
+  @suppliers = Supplier.view_all
+  erb(:new_product)
+end
+
+post '/product/new' do
+  @product = Product.new(params).save
+  redirect to "/stock"
+end
+
 get '/product/:id' do
   @product = Product.find_by_id(params[:id])
   erb(:product_details)
@@ -34,13 +45,9 @@ get '/edit_product/:id' do
   @product = Product.find_by_id(params[:id])
 end
 
-post '/product/:id' do
-    product = Product.new(params)
-    product.update
-    redirect to "/product/#{params['id']}"
-  end
 
-post '/new_supplier' do
+get '/new_supplier' do
   Product.new(params).save
   redirect to '/stock'
+
 end
