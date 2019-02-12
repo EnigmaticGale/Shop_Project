@@ -51,7 +51,7 @@ get '/product/supplier_of_product/supplier_details/:id' do
 end
 
 get '/product/:id/edit' do
-  @supplier = supplier.view_all
+  @suppliers = Supplier.view_all
   @product = Product.find_by_id(params[:id])
 end
 
