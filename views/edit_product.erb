@@ -1,5 +1,5 @@
 <h2>Edit <%= @product.name %><</h2>
-<form method="POST" action="/product/edit">
+<form method="POST" action="/product/<%=@product.id%>/edit">
   <div>
 
     <div>
@@ -35,6 +35,7 @@
             <option value=<%= supplier.id %> selected><%= supplier.company_name %></option>
             <% else %>
             <option value=<%= supplier.id %>><%= supplier.company_name %></option>
+        <% end %>
         <% end %>
       </select>
     </div>
