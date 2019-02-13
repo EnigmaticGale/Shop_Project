@@ -4,7 +4,9 @@
 <p>Stock: <%= @product.stock %></p>
 <p>Price: <%= @product.price %></p>
 <p>Sell Price: <%= @product.sell_price %></p>
+<p>Markup percentage: <%= @product.markup_percentage.to_i %></p>
 <p>Supplier: <%= @product.supplier.company_name %></p>
+
 
 <a href="supplier_of_product/<%= @product.supplier_id %>">Supplier Details</a>
 
