@@ -20,6 +20,10 @@ class Product
     return @sell_price - @price
   end
 
+  def markup_percentage
+    return (gross_profit_margin / @price) * 100
+  end
+
   def supplier
     if @supplier_id != nil
       sql = "SELECT * FROM suppliers WHERE id = $1"
