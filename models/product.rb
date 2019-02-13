@@ -16,6 +16,10 @@ class Product
     @supplier_id = options['supplier_id'].to_i if options['supplier_id']
   end
 
+  def gross_profit_margin
+    return @sell_price - @price
+  end
+
   def supplier
     if @supplier_id != nil
       sql = "SELECT * FROM suppliers WHERE id = $1"
