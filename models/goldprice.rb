@@ -1,5 +1,4 @@
-require 'rubygems'
-require 'httparty'
+require ('httparty')
 
 class GoldPrice
   include HTTParty

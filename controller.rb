@@ -7,6 +7,7 @@ also_reload('./models/*')
 
 get '/stock' do
   @stock = Product.view_all
+  @goldprice = GoldPrice.new
   erb(:stock)
 end
 
