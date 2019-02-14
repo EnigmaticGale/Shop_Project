@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/contrib/all')
 require_relative('models/product')
 require_relative('models/supplier')
+require_relative('models/goldprice')
 also_reload('./models/*')
 
 get '/stock' do
